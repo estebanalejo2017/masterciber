@@ -18,13 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: akhileshns/heroku-deploy@v3.0.0
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "masterciber"
-        heroku_email: estebanalejo@gmail.com
-        usedocker: false
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -43,3 +36,10 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+        - uses: actions/checkout@v3
+    - uses: akhileshns/heroku-deploy@v3.0.0
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "masterciber"
+        heroku_email: estebanalejo@gmail.com
+        usedocker: false
